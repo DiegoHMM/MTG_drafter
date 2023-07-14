@@ -1,2 +1,3 @@
 *.csv
-./Data
+Data
+raw_data
