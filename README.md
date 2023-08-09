@@ -20,16 +20,26 @@ Before you begin, ensure you have met the following requirements:
 ## Step 0: Get raw data:
    Download from [17 lands](https://www.17lands.com/public_datasets) the file: `draft_data_public...PremierDraft.csv` and put it in the `raw_data` folder 
 
-## Step 1: Generate Dataset
+## Step 1: Generate handled data:
 ```bash
-execute: python build_dataset.py
+On "utils" folder,
+
+execute: python acquire_data.py
 ```
 This script will generate the following files:
     
-1. `Data/ltr_cards_data.csv:` This file contains the data for all the cards in the collection.'
+1. `Handled_data/ltr_cards_data.csv:` This file contains the data for all the cards in the collection.'
 
-2.  `Data/draft_data_best_players.csv:` This file contains the data of decks which are in the top rankings: platinum, diamond, and mythic.
+2.  `Handled_data/draft_data_best_players.csv:` This file contains the data of decks which are in the top rankings: platinum, diamond, and mythic.
     
-3. `Data/df_stops.csv:` This dataframe contains only the last cards chosen, already added to the pool.
+3. `Handled_data/df_stops.csv:` This dataframe contains only the last cards chosen, already added to the pool.
     
-4.  `Data/draft_data_best_players_stop.csv:` This dataframe contains only the cards that are among the rankings: {platinum, diamond, mythic} and with the last cards chosen already added to the pool.
+4.  `Handled_data/draft_data_best_players_stop.csv:` This dataframe contains only the cards that are among the rankings: {platinum, diamond, mythic} and with the last cards chosen already added to the pool.
+
+## Step 2: Generate dataset:
+
+```bash
+On "root",
+
+execute: python build_dataset.py
+```

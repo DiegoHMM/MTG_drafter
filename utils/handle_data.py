@@ -5,7 +5,6 @@ def read_data(path):
     data = pd.read_csv(path)
     return data
 
-
 def get_integer_columns_and_dtype(file_path):
     # Read first line of csv file and get integer columns
     df = pd.read_csv(file_path, nrows=1)

@@ -25,9 +25,9 @@ def mount_cards_df(URL, SET):
         URL = data['next_page'] if data['has_more'] else None
 
     # Save the data
-    os.makedirs('Data', exist_ok=True)
+    os.makedirs('Handled_data', exist_ok=True)
     df = pd.DataFrame(card_attr_list)
-    df.to_csv(f'Data/{SET}_cards_data.csv', index=False)
+    df.to_csv(f'Handled_data/{SET}_cards_data.csv', index=False)
 
     return True
 
