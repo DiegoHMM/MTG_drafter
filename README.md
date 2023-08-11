@@ -43,3 +43,20 @@ On "root",
 
 execute: python build_dataset.py
 ```
+
+### Data Structure:
+The dataset captures multiple draft events, with each event being identified by a unique draft_id. Within each draft event, cards are selected in a sequence.
+
+For each draft:
+
+1. In round 1, cards `A, B, and C` are available. Card `A` is chosen.
+2. In round 2, cards `D, E, and F` are available. Card `E` is selected.
+3. In round 3, cards `G, H, and I` are available. Card `I` is chosen.
+4. ...
+### Representing this in our input and output data:
+* Input X of the 3th round of the draft is a sequence of available cards in each of the previous rounds: `[[A,B,C],[D,E,F],[G,H,I]]`
+* Output y is: `[A,E,I]`
+
+
+
+
