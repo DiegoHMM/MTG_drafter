@@ -9,7 +9,7 @@ Card data: Obtained from the Scryfall API, it includes detailed information abou
 
 Deck usage statistics: Provided by the 17 lands API, it contains statistics about how frequently certain cards are used in decks by top-ranked players.  [17 lands](https://www.17lands.com/public_datasets)
 
-# Pre-requisites:
+# Prerequisites:
 Before you begin, ensure you have met the following requirements:
 
 1. Python installed on your local machine.
@@ -56,7 +56,6 @@ For each draft:
 ### Representing this in our input and output data:
 * Input X of the 3th round of the draft is a sequence of available cards in each of the previous rounds: `[[A,B,C],[D,E,F],[G,H,I]]`
 * Output y is: `[A,E,I]`
-
 
 
 
