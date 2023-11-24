@@ -68,7 +68,7 @@ class MagicDataset(Dataset):
         
         # Agora, y será o índice da carta e não o embedding
         y = row['label']
-        y = torch.tensor(y, dtype=torch.long)  # Note que o tipo é torch.long agora
+        y = torch.tensor(y, dtype=torch.long)
         
         return X, y, mascara
 
