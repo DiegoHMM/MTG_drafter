@@ -22,14 +22,14 @@ def format_pkl_to_csv(data_pkl):
 
 
 if __name__ == '__main__':
-    with open('/home/diego/Documentos/MTG_drafter/draftsym/dataset/drafts_train.pkl', 'rb') as f:
+    with open('C:/Users/diego/Documents/MTG_drafter/draftsym/dataset/train_drafts.pkl', 'rb') as f:
         train_data = pickle.load(f)
-    with open('/home/diego/Documentos/MTG_drafter/draftsym/dataset/drafts_test.pkl', 'rb') as f:
+    with open('C:/Users/diego/Documents/MTG_drafter/draftsym/dataset/test_drafts.pkl', 'rb') as f:
         test_data = pickle.load(f)
 
 
     df_train = format_pkl_to_csv(train_data)
     df_test = format_pkl_to_csv(test_data)
 
-    df_train.to_csv('/home/diego/Documentos/MTG_drafter/dataset/draftsym/train.csv')
-    df_test.to_csv('/home/diego/Documentos/MTG_drafter/dataset/draftsym/teste.csv')
+    df_train.to_csv('C:/Users/diego/Documents/MTG_drafter/draftsym/dataset/train.csv')
+    df_test.to_csv('C:/Users/diego/Documents/MTG_drafter/draftsym/dataset/teste.csv')
