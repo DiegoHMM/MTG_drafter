@@ -22,6 +22,7 @@ def get_integer_columns_and_dtype(file_path):
     conversion_dict['pick'] = 'category'
 
     return conversion_dict
+    
 def filter_best_players(file_path, output_file, conversion_dict, chunksize=100000):
     best_players_pick_list = []
     df = pd.read_csv(file_path, chunksize=chunksize, dtype=conversion_dict)
@@ -49,9 +50,9 @@ def process_deck_data(input_file, output_file_stops, conversion_dict):
 
     # Add the last opened card to the deck pool
     picked_cards = df_stops['pick'].unique()
-    # Add last pick (#15) as keyword: "last"
+    # Add last pick (#15) as: Nan value
     df_stops['pick_number'] = 14
-    df_stops['pick'] = 'last'
+    df_stops['pick'] = np.nan
     for card in picked_cards:
         df_stops.loc[df_stops['pick'] == card, 'pool_' + card] = df_stops[df_stops['pick'] == card]['pool_' + card] + 1
 
@@ -66,7 +67,9 @@ def add_stops_to_dataframe(best_players_file, stops_file, output_file, conversio
     # Add Stops Values on big Dataframe
     best_players_pick_df = pd.concat([best_players_pick_df,df_stops])
     best_players_pick_df.to_csv(output_file, index=False)
-
+    #sort df by draft_id and pack_number/pick_number
+    best_players_pick_df.sort_values(by=['draft_id','pack_number','pick_number'], inplace=True)
+    best_players_pick_df.to_csv(output_file, index=False)
 
 def get_cards_metadata(file_path):
     # Load the data

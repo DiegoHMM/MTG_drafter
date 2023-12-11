@@ -28,8 +28,6 @@ class MagicDataset(Dataset):
         similar = modelo_w2v.wv.similar_by_vector(embedding, topn=1)
         return similar[0][0]  # Retorne apenas o nome da carta mais similar
 
-
-    
     @staticmethod
     def string_para_lista(s):
         try:
@@ -48,9 +46,6 @@ class MagicDataset(Dataset):
                 mascara[index] = 1
             
         return mascara
-
-
-
     
     def __getitem__(self, idx):
         row = self.dataframe.iloc[idx]

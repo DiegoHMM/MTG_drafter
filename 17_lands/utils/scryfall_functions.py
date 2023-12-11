@@ -3,7 +3,7 @@ import requests
 import os
 import numpy as np
 
-def mount_cards_df(URL, SET):
+def mount_cards_df(out_dir, URL, SET):
     card_attr_list = []
     while URL:
         r = requests.get(url=URL + SET)
@@ -25,9 +25,9 @@ def mount_cards_df(URL, SET):
         URL = data['next_page'] if data['has_more'] else None
 
     # Save the data
-    os.makedirs('Handled_data', exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
     df = pd.DataFrame(card_attr_list)
-    df.to_csv(f'Handled_data/{SET}_cards_data.csv', index=False)
+    df.to_csv(out_dir + f'/{SET}_cards_data.csv', index=False)
 
     return True
 
